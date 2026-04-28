@@ -1,0 +1,167 @@
+/* ========================================
+   LOTTIE DROPZONE
+   ======================================== */
+
+.dropzone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: var(--space-12);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.dropzone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    var(--accent-alt-subtle) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dropzone:hover::before,
+.dropzone--dragging::before {
+  opacity: 1;
+}
+
+.dropzone__input {
+  display: none;
+}
+
+.dropzone__border {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  border: 2px dashed var(--border-default);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.dropzone:hover .dropzone__border,
+.dropzone--dragging .dropzone__border {
+  border-color: var(--accent-alt);
+  border-style: solid;
+}
+
+.dropzone--dragging .dropzone__border {
+  animation: borderPulse 1s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.dropzone__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.dropzone__icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--space-6);
+}
+
+.dropzone__icon svg {
+  width: 100%;
+  height: 100%;
+  color: var(--accent-alt);
+  transition: transform 0.3s ease;
+}
+
+.dropzone:hover .dropzone__icon svg,
+.dropzone--dragging .dropzone__icon svg {
+  transform: scale(1.1);
+}
+
+.dropzone__icon-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(52, 131, 250, 0.25) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dropzone:hover .dropzone__icon-glow,
+.dropzone--dragging .dropzone__icon-glow {
+  opacity: 1;
+}
+
+.dropzone__title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.dropzone__subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.dropzone__formats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Azul ML para acciones/formatos - contraste accesible (texto blanco sobre azul) */
+.dropzone__format {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 4px 10px;
+  background: var(--accent-alt);
+  border-radius: 4px;
+}
+
+.dropzone__format-separator {
+  color: var(--text-tertiary);
+}
+
+.dropzone__format-text {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.dropzone__error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(242, 61, 79, 0.1);
+  border: 1px solid rgba(242, 61, 79, 0.25);
+  border-radius: var(--radius-md);
+  color: var(--error);
+  font-size: 13px;
+}
+
+.dropzone__error svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+

@@ -1,0 +1,493 @@
+/* ========================================
+   LOTTIE EXPORT - Andes Design System (Mercado Libre)
+   ======================================== */
+
+:root {
+  /* Andes v9 — Fondos (gray-040-solid / gray-070-solid / white) */
+  --bg-primary: #ffffff;         /* andes-bg-white */
+  --bg-secondary: #F5F5F5;       /* andes-bg-secondary / andes-gray-040-solid */
+  --bg-tertiary: #EDEDED;        /* andes-bg-primary / andes-gray-070-solid */
+  --bg-elevated: #ffffff;
+  --bg-hover: #EDEDED;           /* andes-gray-070-solid */
+
+  /* Accent - Amarillo ML (andes-yellow-500) */
+  --accent-primary: #FFE600;
+  --accent-secondary: #e6cf00;
+  --accent-subtle: rgba(255, 230, 0, 0.2);
+  --accent-glow: rgba(255, 230, 0, 0.35);
+
+  /* Accent alt - Azul ML (andes-blue-500 / andes-accent-color) */
+  --accent-alt: #3483FA;
+  --accent-alt-hover: #2968C8;   /* andes-blue-600 */
+  --accent-alt-subtle: rgba(52, 131, 250, 0.1); /* andes-blue-100 */
+
+  /* Text - Andes v9 (gray-900/550/250-solid) */
+  --text-primary: #1A1A1A;       /* andes-gray-900-solid */
+  --text-secondary: #737373;     /* andes-gray-550-solid */
+  --text-tertiary: #999999;
+  --text-disabled: #BFBFBF;      /* andes-gray-250-solid */
+
+  /* Borders (andes-gray-100-solid) */
+  --border-subtle: #E5E5E5;      /* andes-gray-100-solid */
+  --border-default: #E5E5E5;
+  --border-strong: #BFBFBF;      /* andes-gray-250-solid */
+
+  /* Feedback - Andes v9 */
+  --success: #00A650;            /* andes-green-500 */
+  --warning: #FF7733;            /* andes-orange-500 */
+  --error: #F23D4F;              /* andes-red-500 */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 24px var(--accent-glow);
+
+  /* Spacing - Andes v9 (8px base, igual que $andes-spacing-*) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Typography - Andes v9 ($font-family-primary / $font-weight-semibold) */
+  --font-sans: 'Proxima Nova', -apple-system, 'Roboto', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Fira Code', monospace;
+}
+
+/* Tema oscuro - Noche */
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #252525;
+  --bg-tertiary: #2e2e2e;
+  --bg-elevated: #333333;
+  --bg-hover: #3d3d3d;
+  --accent-primary: #ffe600;
+  --accent-secondary: #e6cf00;
+  --accent-subtle: rgba(255, 230, 0, 0.18);
+  --accent-glow: rgba(255, 230, 0, 0.25);
+  --accent-alt: #5ba3ff;
+  --accent-alt-subtle: rgba(91, 163, 255, 0.2);
+  --text-primary: #f0f0f0;
+  --text-secondary: #b8b8b8;
+  --text-tertiary: #888888;
+  --text-disabled: #5c5c5c;
+  --border-subtle: #3a3a3a;
+  --border-default: #404040;
+  --border-strong: #505050;
+  --success: #00c853;
+  --warning: #ffb74d;
+  --error: #ff6b6b;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 24px var(--accent-glow);
+}
+
+/* Tema suave - variante alternativa */
+[data-theme="soft"] {
+  --bg-primary: #f8f6f0;
+  --bg-secondary: #f0ede6;
+  --bg-tertiary: #e8e4dc;
+  --bg-elevated: #faf8f4;
+  --bg-hover: #e0dcd2;
+  --accent-primary: #c9a227;
+  --accent-secondary: #b8921f;
+  --accent-subtle: rgba(201, 162, 39, 0.2);
+  --accent-glow: rgba(201, 162, 39, 0.3);
+  --accent-alt: #6b5b95;
+  --accent-alt-subtle: rgba(107, 91, 149, 0.15);
+  --text-primary: #2c2a26;
+  --text-secondary: #5c5850;
+  --text-tertiary: #8a857a;
+  --text-disabled: #a8a39a;
+  --border-subtle: #ddd9d0;
+  --border-default: #d2cdc4;
+  --border-strong: #c4beb4;
+  --shadow-sm: 0 1px 2px rgba(44, 42, 38, 0.06);
+  --shadow-md: 0 2px 8px rgba(44, 42, 38, 0.08);
+  --shadow-lg: 0 4px 16px rgba(44, 42, 38, 0.1);
+  --shadow-glow: 0 0 20px var(--accent-glow);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   APP LAYOUT
+   ======================================== */
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.app__background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--bg-primary);
+}
+
+/* Andes: franja amarilla sutil en header (identidad ML) */
+.app__gradient-orb {
+  position: absolute;
+  display: none;
+}
+
+.app__gradient-orb--1 {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-primary);
+  display: block;
+  border-radius: 0;
+  filter: none;
+  opacity: 1;
+  animation: none;
+}
+
+.app__gradient-orb--2,
+.app__gradient-orb--3 {
+  display: none;
+}
+
+.app__grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 24px);
+  background-size: 100% 100%;
+}
+
+/* Contenedor único: header y todo lo de abajo comparten el mismo ancho */
+.app__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-width: 0;
+  min-height: 0;      /* permite que los hijos flex se encojan correctamente */
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.app__header {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-8) var(--space-8) var(--space-4);
+  text-align: center;
+  flex-shrink: 0;     /* el header nunca se encoge */
+}
+
+.app__header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-2);
+}
+
+.app__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.app__logo-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--text-primary);
+}
+
+.app__logo h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.app__logo h1 span {
+  color: var(--accent-primary);
+}
+
+.app__tagline {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+
+.app__main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  padding: var(--space-6) var(--space-8);
+  width: 100%;
+  min-width: 0;
+  min-height: 0;      /* crítico: permite que el flex child se encoja */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__workspace {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 380px);
+  gap: var(--space-8);
+  animation: fadeIn 0.4s ease-out;
+  flex: 1;            /* ocupa todo el espacio vertical disponible en app__main */
+  min-height: 0;      /* permite que el grid no desborde */
+}
+
+.app__settings-section {
+  min-width: 0;
+  container-type: inline-size;
+  container-name: settings;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  overflow-y: auto;   /* panel derecho: scrolleable */
+  height: 100%;       /* ocupa toda la altura del grid row */
+  padding-bottom: var(--space-6);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Preview Section — panel izquierdo: queda fijo, no scrollea */
+.app__preview-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+  overflow: hidden;   /* contenido recortado si excede; el panel no scrollea */
+  align-self: start;  /* no se estira para ocupar toda la altura del grid */
+}
+
+.app__preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app__preview-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.app__clear-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--accent-alt);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.app__clear-btn:hover {
+  background: var(--accent-alt-subtle);
+  border-color: var(--accent-alt);
+  color: var(--accent-alt);
+}
+
+.app__clear-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.app__file-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.app__file-name {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.app__file-meta {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* Settings Section — las propiedades de flex están en el bloque de arriba */
+
+.app__error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: rgba(242, 61, 79, 0.1);
+  border: 1px solid rgba(242, 61, 79, 0.25);
+  border-radius: var(--radius-md);
+  color: var(--error);
+  font-size: 13px;
+}
+
+.app__error svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Export Button - Azul ML para acciones */
+.app__export-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-5);
+  background: var(--accent-alt);
+  border: none;
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.app__export-btn:hover:not(:disabled) {
+  background: #2968c0;
+  box-shadow: var(--shadow-md);
+}
+
+.app__export-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.app__export-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.app__export-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.app__export-btn .app__spinner {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+}
+
+.app__spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.app__footer {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-6) var(--space-8);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.app__footer p {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 900px) {
+  .app__workspace {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .app__header {
+    padding: var(--space-6) var(--space-4) var(--space-4);
+  }
+  
+  .app__header-top {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .app__main {
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 600px) {
+  .app__main {
+    padding: var(--space-3);
+  }
+  
+  .app__preview-section,
+  .app__settings-section {
+    gap: var(--space-3);
+  }
+}

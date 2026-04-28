@@ -1,0 +1,218 @@
+/* ========================================
+   LOTTIE PREVIEW
+   ======================================== */
+
+.lottie-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* Stage: ancho 100% del contenedor, alto por aspect-ratio. No crece por el JSON. */
+.lottie-preview__stage {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: var(--aspect-ratio, 1);
+  max-height: 500px;
+  min-width: 0;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  
+  /* Checkerboard pattern for transparency */
+  background-image: 
+    linear-gradient(45deg, var(--bg-tertiary) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--bg-tertiary) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--bg-tertiary) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--bg-tertiary) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  background-color: var(--bg-secondary);
+}
+
+/* Animación fija al stage: rellena el viewport del stage, no toma ancho del JSON */
+.lottie-preview__animation {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lottie-preview__animation svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Overlay siempre del tamaño del stage (responsive al viewport) */
+.lottie-preview__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lottie-preview__overlay:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.lottie-preview__play-indicator {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  color: white;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+}
+
+.lottie-preview__play-indicator--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.lottie-preview__overlay:hover .lottie-preview__play-indicator {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.lottie-preview__play-indicator svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+}
+
+/* Controls */
+.lottie-preview__controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.lottie-preview__progress {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.lottie-preview__progress-bar {
+  height: 100%;
+  background: var(--accent-alt);
+  border-radius: 2px;
+  transition: width 0.05s linear;
+}
+
+.lottie-preview__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lottie-preview__left-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.lottie-preview__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lottie-preview__btn:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.lottie-preview__btn--primary {
+  background: var(--accent-alt-subtle);
+  border-color: transparent;
+  color: var(--accent-alt);
+}
+
+.lottie-preview__btn--primary:hover {
+  background: var(--accent-alt);
+  color: white;
+}
+
+.lottie-preview__btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.lottie-preview__frame-counter {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.lottie-preview__frame-current {
+  color: var(--text-primary);
+  min-width: 3ch;
+  display: inline-block;
+  text-align: right;
+}
+
+.lottie-preview__frame-separator {
+  margin: 0 2px;
+}
+
+.lottie-preview__speed-controls {
+  display: flex;
+  gap: 2px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+}
+
+.lottie-preview__speed-btn {
+  padding: 6px 10px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lottie-preview__speed-btn:hover {
+  color: var(--text-primary);
+}
+
+.lottie-preview__speed-btn--active {
+  background: var(--accent-alt);
+  color: white;
+}
+

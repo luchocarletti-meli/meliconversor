@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "figma-desktop": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "frontender-web-mcp": {
+      "url": "https://frontender-web-mcp.melioffice.com/mcp"
+    }
+  }
+}
