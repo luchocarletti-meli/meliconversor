@@ -272,11 +272,11 @@ body {
 .app__workspace {
   display: grid;
   grid-template-columns: 1fr minmax(260px, 380px);
-  grid-template-rows: 1fr;  /* fila única que llena el espacio flex, no se expande al contenido */
   gap: var(--space-8);
   animation: fadeIn 0.4s ease-out;
   flex: 1;
   min-height: 0;
+  overflow: hidden; /* fuerza el clip de los hijos al alto del grid */
 }
 
 .app__settings-section {
@@ -287,7 +287,6 @@ body {
   flex-direction: column;
   gap: var(--space-4);
   overflow-y: auto;   /* panel derecho: scrolleable */
-  min-height: 0;      /* permite que el grid item se encoja y active el scroll */
   padding-bottom: var(--space-6);
 }
 
@@ -303,7 +302,7 @@ body {
   gap: var(--space-4);
   min-width: 0;
   overflow-y: auto;
-  min-height: 0;  /* permite que el grid item se encoja y active el scroll */
+  /* sin height ni min-height: el grid con overflow:hidden se encarga de acotar */
 }
 
 .app__preview-header {
