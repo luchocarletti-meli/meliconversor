@@ -295,14 +295,14 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Preview Section — panel izquierdo: queda fijo, no scrollea */
+/* Preview Section — panel izquierdo: scrolleable cuando el contenido excede */
 .app__preview-section {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   min-width: 0;
-  overflow: hidden;   /* contenido recortado si excede; el panel no scrollea */
-  align-self: start;  /* no se estira para ocupar toda la altura del grid */
+  overflow-y: auto;
+  height: 100%;
 }
 
 .app__preview-header {
