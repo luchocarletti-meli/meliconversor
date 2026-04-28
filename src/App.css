@@ -272,10 +272,11 @@ body {
 .app__workspace {
   display: grid;
   grid-template-columns: 1fr minmax(260px, 380px);
+  grid-template-rows: 1fr;  /* fila única que llena el espacio flex, no se expande al contenido */
   gap: var(--space-8);
   animation: fadeIn 0.4s ease-out;
-  flex: 1;            /* ocupa todo el espacio vertical disponible en app__main */
-  min-height: 0;      /* permite que el grid no desborde */
+  flex: 1;
+  min-height: 0;
 }
 
 .app__settings-section {
@@ -286,7 +287,7 @@ body {
   flex-direction: column;
   gap: var(--space-4);
   overflow-y: auto;   /* panel derecho: scrolleable */
-  height: 100%;       /* ocupa toda la altura del grid row */
+  min-height: 0;      /* permite que el grid item se encoja y active el scroll */
   padding-bottom: var(--space-6);
 }
 
@@ -295,14 +296,14 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Preview Section — panel izquierdo: scrolleable cuando el contenido excede */
+/* Preview Section — panel izquierdo: scrolleable */
 .app__preview-section {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   min-width: 0;
   overflow-y: auto;
-  height: 100%;
+  min-height: 0;  /* permite que el grid item se encoja y active el scroll */
 }
 
 .app__preview-header {
