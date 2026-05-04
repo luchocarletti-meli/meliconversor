@@ -1,0 +1,23 @@
+src/components/LottiePreview.css
+  6db4a08a7030b120 300,302,308,314-315
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "6a82678b7f388c3178e59ab4c67219c4eb8ffacc",
+  "prompts": {
+    "6db4a08a7030b120": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d91fabc1-c653-4ce8-be42-dd2f2d1b5d59",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "luchocarletti-meli",
+      "messages": [],
+      "total_additions": 5,
+      "total_deletions": 3,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}
