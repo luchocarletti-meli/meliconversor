@@ -243,14 +243,12 @@ function LottiePreview({ data, width, height, onCrop }) {
         {cropMode ? (
           // — Modo crop: botones de confirmar / cancelar —
           <div className="lottie-preview__crop-actions">
-            <span className="lottie-preview__crop-hint">
-              Arrastrá las esquinas para recortar
-            </span>
+            <span className="lottie-preview__crop-hint">Arrastrá las esquinas para recortar</span>
             <div className="lottie-preview__crop-btns">
-              <button className="lottie-preview__btn lottie-preview__btn--cancel" onClick={handleCancelCrop}>
+              <button className="lottie-preview__btn--cancel" onClick={handleCancelCrop}>
                 Cancelar
               </button>
-              <button className="lottie-preview__btn lottie-preview__btn--apply" onClick={handleApplyCrop}>
+              <button className="lottie-preview__btn--apply" onClick={handleApplyCrop}>
                 Aplicar crop
               </button>
             </div>
