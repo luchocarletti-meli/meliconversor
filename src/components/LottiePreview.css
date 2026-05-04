@@ -216,3 +216,154 @@
   color: white;
 }
 
+/* ========================================
+   CROP OVERLAY
+   ======================================== */
+
+/* Contenedor que cubre todo el stage */
+.lottie-preview__crop-overlay {
+  position: absolute;
+  inset: 0;
+  cursor: crosshair;
+  user-select: none;
+}
+
+/* Las 4 máscaras oscuras fuera del crop */
+.lottie-preview__crop-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(1px);
+}
+
+.lottie-preview__crop-mask--top    { top: 0; }
+.lottie-preview__crop-mask--bottom { bottom: 0; }
+.lottie-preview__crop-mask--left   { right: auto; }
+.lottie-preview__crop-mask--right  { left: auto; right: 0; }
+
+/* Marco del área visible (el "recorte") */
+.lottie-preview__crop-box {
+  position: absolute;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
+  cursor: default;
+}
+
+/* Guías de tercios — líneas internas del crop */
+.lottie-preview__crop-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 33.33% 33.33%;
+  pointer-events: none;
+}
+
+/* Handles en las 4 esquinas — siempre dentro del stage para no ser recortados */
+.lottie-preview__crop-handle {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 2px solid rgba(0,0,0,0.5);
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+.lottie-preview__crop-handle--nw { top: 4px;    left: 4px;   cursor: nw-resize; }
+.lottie-preview__crop-handle--ne { top: 4px;    right: 4px;  cursor: ne-resize; }
+.lottie-preview__crop-handle--sw { bottom: 4px; left: 4px;   cursor: sw-resize; }
+.lottie-preview__crop-handle--se { bottom: 4px; right: 4px;  cursor: se-resize; }
+
+/* Label con las dimensiones actuales del crop */
+.lottie-preview__crop-dims {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.75);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Controles de crop (reemplazan la barra normal) */
+.lottie-preview__crop-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.lottie-preview__crop-hint {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.lottie-preview__crop-btns {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* Botón crop en la barra de controles normal */
+.lottie-preview__btn--crop {
+  color: var(--text-secondary);
+}
+
+.lottie-preview__btn--crop:hover {
+  background: var(--accent-alt-subtle);
+  border-color: var(--accent-alt);
+  color: var(--accent-alt);
+}
+
+/* Botón Aplicar */
+.lottie-preview__btn--apply {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  height: 36px;
+  padding: 0 var(--space-4);
+  background: var(--accent-alt);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lottie-preview__btn--apply:hover {
+  background: var(--accent-alt-hover);
+}
+
+/* Botón Cancelar */
+.lottie-preview__btn--cancel {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  height: 36px;
+  padding: 0 var(--space-4);
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lottie-preview__btn--cancel:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+

@@ -8,6 +8,7 @@ import ColorEditor from './components/ColorEditor'
 import { useLottieConverter } from './hooks/useLottieConverter'
 import { getLottieDataWithoutBackground } from './utils/lottieBackground'
 import { getLottieDataWithoutLogo, hasDetectableLogo } from './utils/lottieLogoRemover'
+import { applyCrop } from './utils/lottieCrop'
 import './App.css'
 
 function App() {
@@ -65,7 +66,9 @@ function App() {
       return
     }
     setVideoSource(null)
-    setLottieData(data)
+    // Limpia automáticamente el watermark al cargar el JSON,
+    // sin que el usuario tenga que hacer nada.
+    setLottieData(getLottieDataWithoutLogo(data))
     setFileName(name.replace('.json', ''))
     setSettings(prev => {
       const next =
@@ -160,6 +163,7 @@ function App() {
                     })()}
                     width={settings.width}
                     height={settings.height}
+                    onCrop={(crop) => setLottieData(prev => applyCrop(prev, crop))}
                   />
                   <div className="app__file-info">
                     <span className="app__file-name">{fileName}.json</span>
